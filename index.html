@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Magic ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <audio id="bgMusic" loop>
+      <source src="audio.files.mp4" type="audio/mpeg" />
+    </audio>
+    <!-- ═══════════════════════════════ LOADING SCREEN ═══════════════════════════════ -->
+    <div id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-heart">❤️</div>
+        <div class="loading-text">A magic is loading…</div>
+        <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+      </div>
+    </div>
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Animated cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Canvas for particles / fireflies / stars -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- ═══════════════════════════════ NAVIGATION ═══════════════════════════════ -->
+    <nav id="navbar">
+      <div class="nav-logo">❤️ Your eyes</div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#story">Story</a>
+        <a href="#dialogue">Words</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#promise">Promise</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#ending">Ending</a>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════ HERO SECTION ═══════════════════════════════ -->
+    <section id="hero">
+      <div class="stars-layer"></div>
+      <div class="hero-content">
+        <div class="hero-badge">✦ Magic ✦</div>
+        <h1 class="hero-title">
+          From the moment<br />
+          <em>I saw you</em>,<br />
+          my world changed ❤️
+        </h1>
+        <p class="hero-subtitle" id="typing-text"></p>
+        <div class="hero-heartbeat">
+          <svg viewBox="0 0 200 60" class="heartbeat-svg">
+            <polyline
+              points="0,30 30,30 40,5 55,55 70,20 85,40 100,30 200,30"
+            />
+          </svg>
+        </div>
+        <a href="#story" class="hero-cta">Begin a magic ↓</a>
+      </div>
+      <div class="hero-floating-hearts" id="hero-hearts"></div>
+    </section>
+
+    <!-- ═══════════════════════════════ LOVE STORY ANIMATION ═══════════════════════════════ -->
+    <section id="story">
+      <div class="section-header reveal">
+        <span class="section-tag">Chapter I</span>
+        <h2>The First Glance</h2>
+        <p>Time slowed down the moment your eyes met…</p>
+      </div>
+
+      <div class="story-scene reveal">
+        <div class="scene-panel left">
+          <div class="character boy">
+            <div class="char-aura boy-aura"></div>
+            <div class="char-icon">👦</div>
+            <div class="char-label">me</div>
+          </div>
+        </div>
+        <div class="scene-center">
+          <div class="eye-contact-beam"></div>
+          <div class="scene-hearts" id="scene-hearts"></div>
+          <div class="scene-caption">"Time froze…"</div>
+        </div>
+        <div class="scene-panel right">
+          <div class="character girl">
+            <div class="char-aura girl-aura"></div>
+            <div class="char-icon">👧</div>
+            <div class="char-label">you</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-cards reveal">
+        <div class="story-card" style="--delay: 0s">
+          <div class="story-card-icon">🌅</div>
+          <p>Meeting you was fate. Falling for you was effortless.</p>
+        </div>
+        <div class="story-card" style="--delay: 0.15s">
+          <div class="story-card-icon">👀</div>
+          <p>You are the poem I never knew how to write.</p>
+        </div>
+        <div class="story-card" style="--delay: 0.3s">
+          <div class="story-card-icon">💫</div>
+          <p>You make every moment feel like magic.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ DIALOGUE SECTION ═══════════════════════════════ -->
+    <section id="dialogue">
+      <div class="section-header reveal">
+        <span class="section-tag">Chapter II</span>
+        <h2>The Question</h2>
+      </div>
+
+      <div class="dialogue-wrap">
+        <div class="dialogue-bubble girl-bubble reveal">
+          <div class="bubble-avatar">👧</div>
+          <div class="bubble-text">
+            <span class="bubble-name">you</span>
+            <p>"Why do you love me?"</p>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble boy-bubble reveal">
+          <div class="bubble-avatar">👦</div>
+          <div class="bubble-text">
+            <span class="bubble-name">me</span>
+            <p id="boy-reply"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dialogue-glow-quote reveal">
+        <blockquote>
+          "Real love doesn't need a reason.<br />
+          Some feelings are simply meant to be felt."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ LOVE TIMELINE ═══════════════════════════════ -->
+    <section id="timeline">
+      <div class="section-header reveal">
+        <span class="section-tag">Chapter III</span>
+        <h2>Our Timeline</h2>
+      </div>
+
+      <div class="counter-wrap reveal">
+        <div class="counter-display">
+          <span id="days-count">0</span>
+        </div>
+        <p class="counter-label">Khaas Aaha k uu din nai dekhti.. ❤️</p>
+      </div>
+
+      <div class="timeline-track">
+        <div class="timeline-item reveal" style="--delay: 0s">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-icon">👀</div>
+            <h4>First Glance</h4>
+            <p>अहाँकेँ पहिल बेर देखलहुँ, तहि दिन सँ मन अहाँमे बसि गेल।एखन त’ हर दुआमे,बस अहाँक नाम निकलै छै। 🌸.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" style="--delay: 0.1s">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-icon">💬</div>
+            <h4>First Words</h4>
+            <p>A You are the peace my heart was searching for..</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" style="--delay: 0.2s">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-icon">😊</div>
+            <h4>First Smile</h4>
+            <p>You smiled at me and I forgot how to breathe.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" style="--delay: 0.3s">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-icon">❤️</div>
+            <h4>This Moment</h4>
+            <p>I may not always say it perfectly, but my heart becomes calm whenever I talk to you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ PROMISE SECTION ═══════════════════════════════ -->
+    <section id="promise">
+      <div class="section-header reveal">
+        <span class="section-tag">Chapter IV</span>
+        <h2>My Promise to You</h2>
+      </div>
+
+      <div class="promise-card reveal">
+        <div class="promise-pulse"></div>
+        <div class="promise-icon">🌟</div>
+        <p class="promise-text" id="promise-text"></p>
+      </div>
+
+      <div class="promise-pillars reveal">
+        <div class="pillar">
+          <span class="pillar-icon">🎯</span>
+          <span>Your Support</span>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">💪</span>
+          <span>Your Motivation</span>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">😊</span>
+          <span>Your Happiness</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ REASONS SECTION ═══════════════════════════════ -->
+    <section id="reasons">
+      <div class="section-header reveal">
+        <span class="section-tag">Chapter V</span>
+        <h2>Why I Love You</h2>
+        <p>Every little thing about you…</p>
+      </div>
+
+      <div class="reasons-grid">
+        <div class="reason-card reveal" style="--delay: 0s" data-tilt>
+          <div class="reason-glow"></div>
+          <div class="reason-icon">😊</div>
+          <h3>Your Smile</h3>
+          <p>It lights up every room and rewrites every sad story.</p>
+        </div>
+        <div class="reason-card reveal" style="--delay: 0.08s" data-tilt>
+          <div class="reason-glow"></div>
+          <div class="reason-icon">🧠</div>
+          <h3>Your Intelligence</h3>
+          <p>Watching you think is the most beautiful thing I've ever seen.</p>
+        </div>
+        <div class="reason-card reveal" style="--delay: 0.16s" data-tilt>
+          <div class="reason-glow"></div>
+          <div class="reason-icon">🌸</div>
+          <h3>Your Kindness</h3>
+          <p>
+            You treat the world with a gentleness that takes my breath away.
+          </p>
+        </div>
+        <div class="reason-card reveal" style="--delay: 0.24s" data-tilt>
+          <div class="reason-glow"></div>
+          <div class="reason-icon">🕊️</div>
+          <h3>Your Innocence</h3>
+          <p>Pure, untouched, and impossibly beautiful inside and out.</p>
+        </div>
+        <div class="reason-card reveal" style="--delay: 0.32s" data-tilt>
+          <div class="reason-glow"></div>
+          <div class="reason-icon">📚</div>
+          <h3>Your Dedication</h3>
+          <p>The way you work hard for your dreams inspires me every day.</p>
+        </div>
+        <div class="reason-card reveal" style="--delay: 0.4s" data-tilt>
+          <div class="reason-glow"></div>
+          <div class="reason-icon">🌙</div>
+          <h3>The Peace You Give</h3>
+          <p>Around you, my restless soul finally finds its quiet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ MUSIC SECTION ═══════════════════════════════ -->
+    <section id="music-section">
+      <div class="section-header reveal">
+        <span class="section-tag">♪ Soundtrack</span>
+        <h2>Our Song</h2>
+      </div>
+      <div class="music-player reveal">
+        <div class="music-visualizer" id="visualizer">
+          <div class="viz-bar" style="--i: 1"></div>
+          <div class="viz-bar" style="--i: 2"></div>
+          <div class="viz-bar" style="--i: 3"></div>
+          <div class="viz-bar" style="--i: 4"></div>
+          <div class="viz-bar" style="--i: 5"></div>
+          <div class="viz-bar" style="--i: 6"></div>
+          <div class="viz-bar" style="--i: 7"></div>
+          <div class="viz-bar" style="--i: 8"></div>
+          <div class="viz-bar" style="--i: 9"></div>
+          <div class="viz-bar" style="--i: 10"></div>
+          <div class="viz-bar" style="--i: 11"></div>
+          <div class="viz-bar" style="--i: 12"></div>
+        </div>
+        <div class="music-info">
+          <div class="music-title">♪ Our Cinematic Love Theme</div>
+          <div class="music-sub">Playing in your heart…</div>
+        </div>
+        <div class="music-controls">
+          <button id="play-btn" class="music-btn">▶ Play</button>
+          <div class="volume-wrap">
+            <span>🔊</span>
+            <input
+              type="range"
+              id="volume-slider"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+            />
+          </div>
+        </div>
+        <p class="music-note">
+          🎵 Background music plays using the Web Audio API — no external files
+          needed.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ FINAL ENDING ═══════════════════════════════ -->
+    <section id="ending">
+      <div class="night-sky" id="night-sky"></div>
+      <div class="moon-glow"></div>
+
+      <div class="ending-content">
+        <div class="ending-message reveal">
+          <p class="ending-line" id="ending-line"></p>
+        </div>
+
+        <button id="stay-btn" class="stay-button reveal">
+          Will You Stay In My Life? 💕
+        </button>
+
+        <div class="final-message" id="final-message">
+          <div class="final-hearts" id="final-hearts"></div>
+          <div class="final-text">
+            <h2>Thank You ❤️</h2>
+            <p>
+              For existing. For being you.<br />For making ordinary moments feel
+              like poetry.
+            </p>
+            <p class="final-sub">
+              Whatever you decide, I'll always be grateful that the universe let
+              me know someone as wonderful as you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+    <footer>
+      <p>Made with ❤️ and all the love in the universe</p>
+      <p class="footer-quote">
+        "Some stories are written in stars, some in heartbeats."
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
